@@ -4,7 +4,9 @@ import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { DataTable } from 'mantine-datatable';
 
 
- function Table({}) {
+ function Table() {
+  const { data } = Pokemon();
+  console.log(data);
   return (
     <DataTable
     withTableBorder
@@ -14,7 +16,7 @@ import { DataTable } from 'mantine-datatable';
     striped
     columns={[{ accessor: 'name' }, { accessor: 'url' }]}
     records={
-      [Pokemon] 
+      data
     }
     />
   );

@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 
 function Pokemon() {
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
 
@@ -20,17 +20,9 @@ function Pokemon() {
     }, []); 
     
     if(isLoading) return <h1>Loading...</h1>
-    console.log(data);
 
-    return (
-        <div>
-            {data.map((item: any) => (
-                <div className="d-flex">
-                  <h1 key={item.name}>{item.name}</h1>
-                </div>
-            ))}
-        </div>
-    )
+    return {data};
+    
 }
 
 export default Pokemon;
