@@ -6,22 +6,25 @@ import React, { useState, useEffect } from "react";
 function Pokemon() {
 
     const [data, setData] = useState<any[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [limit, setLimit] = useState(20);
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const fetchPokemon = async () => {
-        await axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20')
-           .then((res) => setData(res.data.results));
+        setIsLoading(true)     
+        await axios.get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=${limit}`)
+           .then((res) => {setData(res.data.results)
+           setIsLoading(false)     
+        });
     }
 
     useEffect(() =>  {
         fetchPokemon();
-        setIsLoading(false);
-    }, []); 
+    }, [limit]); 
     
     if(isLoading) return <h1>Loading...</h1>
 
-    return {data};
+    return {data, isLoading, setLimit};
     
 }
 
