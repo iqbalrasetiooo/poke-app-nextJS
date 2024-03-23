@@ -35,9 +35,8 @@ function Table() {
     fetching={isLoading}
     withTableBorder
     withColumnBorders
-    backgroundColor={{ dark: '#232b25', light: '#f0f7f1' }}
-    borderColor="#40c057" 
-    rowBorderColor="#fab005" 
+    borderColor="#fffff" 
+    rowBorderColor="#fffff" 
     highlightOnHover
     height={450}
     striped
